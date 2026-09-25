@@ -16,14 +16,16 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        child: Column( 
+        color: const Color.fromARGB(255, 188, 146, 87),
+        child: Column(
           children: [
-            Text(  
+            Text(
               'Interstellar(2024) (PG)',
               style: TextStyle(fontSize: 34),
-              
-            ), SizedBox(height: 25),
-            Text('A team of explorers travels through a wormhole in space in search of a new home for humanity as Earth becomes increasingly uninhabitable.'),
+            ),
+            SizedBox(height: 25),
+            Text(
+                'A team of explorers travels through a wormhole in space in search of a new home for humanity as Earth becomes increasingly uninhabitable.'),
             SizedBox(height: 25),
             Text(
               'Southsea Cinema Room',
@@ -33,11 +35,7 @@ class MovieListing extends StatelessWidget {
               'Thursday, 20th June 2027, 20:00 - ends at 22:30',
               style: TextStyle(fontSize: 20),
             ),
-            
-
-
-
-           ] ,
+          ],
         ),
       ),
     );
