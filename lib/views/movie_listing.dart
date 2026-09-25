@@ -19,11 +19,18 @@ class MovieListing extends StatelessWidget {
         color: const Color.fromARGB(255, 188, 146, 87),
         child: Column(
           children: [
-            Text(
-              'Interstellar(2024) (PG)',
-              style: TextStyle(fontSize: 34),
+            Row(
+              children: [
+                Text(
+                  'Interstellar(2024)',
+                  style: TextStyle(fontSize: 34),
+                ),
+                Text(
+                  '(PG-13)',
+                  style: TextStyle(fontSize : 34),
+                  ),
+              ],
             ),
-            SizedBox(height: 25),
             Text(
                 'A team of explorers travels through a wormhole in space in search of a new home for humanity as Earth becomes increasingly uninhabitable.'),
             SizedBox(height: 25),
