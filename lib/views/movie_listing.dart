@@ -53,10 +53,19 @@ class _MovieListingState extends State<MovieListing> {
              Text(
                'Select tickets(Up to 5 per order) , Membership discount available only at the entrance',
              style: TextStyle(fontSize: 15),),
+             SizedBox(height: 15),
+
 
               DropdownMenu<int>(
-                initialSelection: 0,
-                helperText: 'Select number of tickets',
+                initialSelection: 1,
+                inputDecorationTheme: InputDecorationTheme(
+                filled: true,
+                fillColor: Colors.white,
+                ),
+                menuStyle: MenuStyle(
+                 backgroundColor: WidgetStatePropertyAll(Colors.white),
+                ),
+                helperText: 'Select tickets',
                 onSelected: (int? value) {
                   if (value != null) {
                     setState(() {
@@ -72,9 +81,10 @@ class _MovieListingState extends State<MovieListing> {
                   DropdownMenuEntry(value: 5, label: '5'),
                 ]
               )
+              
    ],
            
-          ],
+          
         ),
       ),
     );
