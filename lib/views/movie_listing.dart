@@ -10,7 +10,8 @@ class MovieListing extends StatefulWidget {
 }
 
 class _MovieListingState extends State<MovieListing> {
-  int _totalPrice = 0;
+  int tickets = 1;
+  String? message;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,9 @@ class _MovieListingState extends State<MovieListing> {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        color: const Color.fromARGB(255, 188, 146, 87),
+        color: cinemaSurface,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -32,44 +34,44 @@ class _MovieListingState extends State<MovieListing> {
                   'Interstellar(2024)',
                   style: TextStyle(fontSize: 34),
                 ),
+                SizedBox(width: 10),
                 Text(
                   '(PG-13)',
-                  style: TextStyle(fontSize : 34),
-                  ),
+                  style: TextStyle(fontSize: 34),
+                ),
               ],
             ),
             Text(
                 'A team of explorers travels through a wormhole in space in search of a new home for humanity as Earth becomes increasingly uninhabitable.'),
-            SizedBox(height: 25),
+            SizedBox(height: 45),
             Text(
-                'Southsea Cinema Room',
+              'Southsea Cinema Room',
               style: TextStyle(fontSize: 20),
-                ),
+            ),
             Text(
-               'Thursday, 20th June 2027, 20:00 - ends at 22:30',
-             style: TextStyle(fontSize: 20),
-                ), 
-                SizedBox(height: 35),
-             Text(
-               'Select tickets(Up to 5 per order) , Membership discount available only at the entrance',
-             style: TextStyle(fontSize: 15),),
-             SizedBox(height: 15),
-
-
-              DropdownMenu<int>(
+              'Thursday, 20th June 2027, 20:00 - ends at 22:30',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 35),
+            Text(
+              'Select tickets(Up to 5 per order) , Membership discount available only at the entrance',
+              style: TextStyle(fontSize: 15),
+            ),
+            SizedBox(height: 35),
+            DropdownMenu<int>(
                 initialSelection: 1,
                 inputDecorationTheme: InputDecorationTheme(
-                filled: true,
-                fillColor: Colors.white,
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
                 menuStyle: MenuStyle(
-                 backgroundColor: WidgetStatePropertyAll(Colors.white),
+                  backgroundColor: WidgetStatePropertyAll(Colors.white),
                 ),
                 helperText: 'Select tickets',
                 onSelected: (int? value) {
                   if (value != null) {
                     setState(() {
-                      _totalPrice = value;
+                      tickets = value;
                     });
                   }
                 },
@@ -79,12 +81,25 @@ class _MovieListingState extends State<MovieListing> {
                   DropdownMenuEntry(value: 3, label: '3'),
                   DropdownMenuEntry(value: 4, label: '4'),
                   DropdownMenuEntry(value: 5, label: '5'),
-                ]
-              )
-              
-   ],
-           
-          
+                ]),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  message = 'Add button pressed!';
+                });
+              },
+              child: const Text('Add'),
+            ),
+            if (message != null)
+              Text(
+                message!,
+                style: const TextStyle(
+                  color: cinemaFontWhite,
+                  fontSize: 16,
+                ),
+              ),
+          ],
         ),
       ),
     );
