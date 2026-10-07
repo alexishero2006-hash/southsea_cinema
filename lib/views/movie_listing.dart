@@ -4,6 +4,7 @@ import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({super.key});
+  
 
   @override
   State<MovieListing> createState() => _MovieListingState();
