@@ -4,7 +4,7 @@ class Movies {
   final String description;
   final String imagePath;
 
-  Movies({
+ const Movies({
     required this.id,
     required this.name,
     required this.description,
