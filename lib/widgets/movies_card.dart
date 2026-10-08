@@ -9,6 +9,7 @@ class MoviesCard extends StatelessWidget {
     @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0)
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
