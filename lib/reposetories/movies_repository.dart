@@ -1,7 +1,7 @@
 import 'package:southsea_cinema/models/movies.dart';
 
 class MoviesRepository {
-  List<Movies> getmovies() {
+  List<Movies> getmMovies() {
     return const [
       Movies(
         id: 'interstellar',
@@ -9,6 +9,8 @@ class MoviesRepository {
         description:
             'A team of explorers travels through a wormhole in space in search of a new home for humanity.',
         imagePath: 'assets/images/interstellar.jpg',
+        ageRating: 'PG-13',
+        showTime: '7:00 PM',
       ),
       Movies(
         id: 'oppenheimer',
@@ -16,6 +18,8 @@ class MoviesRepository {
         description:
             'The story of J. Robert Oppenheimer and his role in the development of the atomic bomb.',
         imagePath: 'assets/images/oppenheimer.jpg',
+        ageRating: 'R',
+        showTime: '8:00 PM',
       ),
     ];
   }

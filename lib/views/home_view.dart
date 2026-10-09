@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/reposetories/movies_repository.dart';
+import 'package:southsea_cinema/widgets/movies_card.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final movies = MoviesRepository().getmMovies();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -18,7 +21,7 @@ class HomeView extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const Center(
+      body: Center(
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
@@ -32,6 +35,7 @@ class HomeView extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              MoviesCard(movie: movies[0])
             ],
           ),
         ),
