@@ -35,7 +35,8 @@ class HomeView extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              MoviesCard(movie: movies[0])
+              MoviesCard(movie: movies[0]),
+              MoviesCard(movie: movies[1]),
             ],
           ),
         ),
