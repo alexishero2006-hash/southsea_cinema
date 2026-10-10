@@ -1,7 +1,7 @@
 import 'package:southsea_cinema/models/movies.dart';
 
 class MoviesRepository {
-  List<Movies> getmMovies() {
+  List<Movies> getMovies() {
     return const [
       Movies(
         id: 'interstellar',

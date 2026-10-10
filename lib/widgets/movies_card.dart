@@ -13,18 +13,18 @@ class MoviesCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
               movie.imagePath,
               width: 80,
-              height: 80,
+              height: 110,
               fit: BoxFit.cover,
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     movie.name,
@@ -54,6 +54,10 @@ class MoviesCard extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
                 onPressed: () {},
                 child: const Text('Book Now'),
               ),
