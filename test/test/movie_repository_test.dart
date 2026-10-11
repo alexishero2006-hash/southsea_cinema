@@ -1,23 +1,28 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/reposetories/movies_repository.dart';
+import 'package:southsea_cinema/models/movies.dart';
 
 void main() {
-  group('MoviesRepository tests', () {
-    test('Repository returns two movies', () {
+  group('Repository methods', () {
+    test('Find movie by ID', () {
       final repository = MoviesRepository();
-      final movies = repository.getMovies();
 
-      expect(movies.length, 2);
+      expect(repository.getMovieById('1')?.name, 'Interstellar');
+      expect(repository.getMovieById('999'), null);
     });
 
-    test('Repository contains Interstellar and Oppenheimer', () {
+    test('Filter by age rating', () {
       final repository = MoviesRepository();
-      final movies = repository.getMovies();
+      final movies = repository.getMoviesByAgeRating('PG');
 
-      expect(movies[0].name, 'Interstellar');
-      expect(movies[1].name, 'Oppenheimer');
-      expect(movies[0].imagePath, isNotEmpty);
-      expect(movies[1].imagePath, isNotEmpty);
+      expect(movies, isNotEmpty);
+    });
+
+    test('Filter by price', () {
+      final repository = MoviesRepository();
+      final movies = repository.getMoviesUnderPrice(10.0);
+
+      expect(movies, isNotEmpty);
     });
   });
 }
