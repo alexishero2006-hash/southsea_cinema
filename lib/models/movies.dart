@@ -18,4 +18,21 @@ class Movies {
   });
 
   String get formattedPrice => '£${price.toStringAsFixed(2)}';
+
+  bool get isChildFriendly {
+    if (ageRating == 'U' || ageRating == 'PG') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  bool get isAdultOnly {
+    if (ageRating == '18') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 }
