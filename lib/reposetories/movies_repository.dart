@@ -15,11 +15,11 @@ class MoviesRepository {
       ),
       Movies(
         id: 'openheimer',
-        name: 'Openheimer',
+        name: 'Openheimer (PG-13)',
         description:
             'The story of J. Robert Oppenheimer and his role in the development of the atomic bomb.',
         imagePath: 'assets/images/openheimer.jpg',
-        ageRating: 'R',
+        ageRating: 'PG-13',
         showTime: '8:00 PM',
         price : 8.50
       ),
