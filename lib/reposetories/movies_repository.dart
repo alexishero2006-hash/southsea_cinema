@@ -11,6 +11,7 @@ class MoviesRepository {
         imagePath: 'assets/images/interstellar.jpg',
         ageRating: 'PG-13',
         showTime: '7:00 PM',
+        price : 8.50
       ),
       Movies(
         id: 'openheimer',
@@ -20,6 +21,7 @@ class MoviesRepository {
         imagePath: 'assets/images/openheimer.jpg',
         ageRating: 'R',
         showTime: '8:00 PM',
+        price : 8.50
       ),
     ];
   }
