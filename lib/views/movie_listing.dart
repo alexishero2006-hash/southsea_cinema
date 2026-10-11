@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/reposetories/movies_repository.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({super.key});
@@ -32,7 +33,7 @@ class _MovieListingState extends State<MovieListing> {
             Row(
               children: [
                 Text(
-                  'Interstellar(2024)',
+                  MoviesRepository().getMovies()[0].name,
                   style: TextStyle(fontSize: 34),
                 ),
                 SizedBox(width: 10),
@@ -42,48 +43,52 @@ class _MovieListingState extends State<MovieListing> {
                 ),
               ],
             ),
+            Text(MoviesRepository().getMovies()[0].description),
+            SizedBox(height: 10),
+            Image.asset(
+                  MoviesRepository().getMovies()[0].imagePath,
+                          width: 150,
+                          height: 220,
+                          fit: BoxFit.contain,
+                        ),
+            SizedBox(height: 10),
             Text(
-                'A team of explorers travels through a wormhole in space in search of a new home for humanity as Earth becomes increasingly uninhabitable.'),
-            SizedBox(height: 45),
-            Text(
-              'Southsea Cinema Room',
+              MoviesRepository().getMovies()[0].formattedPrice,
               style: TextStyle(fontSize: 20),
             ),
+            SizedBox(height: 5),
             Text(
-              'Thursday, 20th June 2027, 20:00 - ends at 22:30',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 35),
-            Text(
-              'Select tickets(Up to 5 per order) , Membership discount available only at the entrance',
+              'Select number of tickets:',
               style: TextStyle(fontSize: 15),
             ),
-            SizedBox(height: 35),
+            SizedBox(height: 7),
             DropdownMenu<int>(
-                initialSelection: 1,
-                inputDecorationTheme: InputDecorationTheme(
-                  filled: true,
-                  fillColor: Colors.white,
-                ),
-                menuStyle: MenuStyle(
-                  backgroundColor: WidgetStatePropertyAll(Colors.white),
-                ),
-                helperText: 'Select tickets',
-                onSelected: (int? value) {
-                  if (value != null) {
-                    setState(() {
-                      tickets = value;
-                    });
-                  }
-                },
-                dropdownMenuEntries: [
-                  DropdownMenuEntry(value: 1, label: '1'),
-                  DropdownMenuEntry(value: 2, label: '2'),
-                  DropdownMenuEntry(value: 3, label: '3'),
-                  DropdownMenuEntry(value: 4, label: '4'),
-                  DropdownMenuEntry(value: 5, label: '5'),
-                ]),
-            const SizedBox(height: 24),
+              initialSelection: 1,
+              inputDecorationTheme: const InputDecorationTheme(
+                filled: true,
+                fillColor: Colors.white,
+              ),
+              textStyle: const TextStyle(color: Colors.black),
+              menuStyle: const MenuStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.white),
+              ),
+              helperText: 'Select tickets',
+              onSelected: (int? value) {
+                if (value != null) {
+                  setState(() {
+                    tickets = value;
+                  });
+                }
+              },
+              dropdownMenuEntries: const [
+                DropdownMenuEntry(value: 1, label: '1'),
+                DropdownMenuEntry(value: 2, label: '2'),
+                DropdownMenuEntry(value: 3, label: '3'),
+                DropdownMenuEntry(value: 4, label: '4'),
+                DropdownMenuEntry(value: 5, label: '5'),
+              ],
+            ),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 setState(() {
