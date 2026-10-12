@@ -24,7 +24,7 @@ class MoviesCard extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     movie.name,

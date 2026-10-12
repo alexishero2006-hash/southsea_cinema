@@ -26,6 +26,7 @@ class Movies {
       return false;
     }
   }
+
   bool get isAdultOnly {
     if (ageRating == '18') {
       return true;
@@ -33,6 +34,4 @@ class Movies {
       return false;
     }
   }
-
-
 }

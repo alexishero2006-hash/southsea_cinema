@@ -23,8 +23,8 @@ void main() {
   test('Child friendly', () {
     expect(movie.isChildFriendly, true);
   });
- 
+
   test('Adult only', () {
-  expect(movie.isAdultOnly, false);
+    expect(movie.isAdultOnly, false);
   });
 }

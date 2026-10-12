@@ -4,10 +4,7 @@ import 'package:southsea_cinema/views/home_view.dart';
 
 void main() {
   group('App smoke tests', () {
-
-    testWidgets('App displays HomeView as home',
-        (WidgetTester tester) async {
-
+    testWidgets('App displays HomeView as home', (WidgetTester tester) async {
       await tester.pumpWidget(const SouthseaCinemaApp());
       await tester.pumpAndSettle();
 
@@ -17,7 +14,6 @@ void main() {
 
     testWidgets('Displays movies and booking buttons',
         (WidgetTester tester) async {
-
       await tester.pumpWidget(const SouthseaCinemaApp());
       await tester.pumpAndSettle();
 
@@ -25,6 +21,5 @@ void main() {
       expect(find.text('Openheimer'), findsOneWidget);
       expect(find.text('Book Now'), findsNWidgets(2));
     });
-
   });
 }
