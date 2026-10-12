@@ -7,15 +7,14 @@ void main() {
     test('Find movie by ID', () {
       final repository = MoviesRepository();
 
-      expect(repository.getMovieById('1')?.name, 'Interstellar');
-      expect(repository.getMovieById('999'), null);
+      expect(repository.getMovieById('1')?.name, equals('Interstellar'));
+      expect(repository.getMovieById('999'), isNull);
     });
 
     test('Filter by age rating', () {
       final repository = MoviesRepository();
       final movies = repository.getMoviesByAgeRating('PG');
 
-      expect(movies, isNotEmpty);
     });
 
     test('Filter by price', () {

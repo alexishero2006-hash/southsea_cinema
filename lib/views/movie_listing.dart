@@ -105,7 +105,7 @@ class _MovieListingState extends State<MovieListing> {
                   fontSize: 16,
                 ),
               ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             const SizedBox(height: 15),
             Text(
               movies[1].name,

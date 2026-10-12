@@ -4,7 +4,7 @@ class MoviesRepository {
   List<Movies> getMovies() {
     return const [
       Movies(
-          id: 'interstellar',
+          id: '1',
           name: 'Interstellar',
           description:
               'A team of explorers travels through a wormhole in space in search of a new home for humanity.',
@@ -13,8 +13,8 @@ class MoviesRepository {
           showTime: '7:00 PM',
           price: 8.50),
       Movies(
-          id: 'openheimer',
-          name: 'Openheimer (PG-13)',
+          id: '2',
+          name: 'Openheimer',
           description:
               'The story of J. Robert Oppenheimer and his role in the development of the atomic bomb.',
           imagePath: 'assets/images/openheimer.jpg',
