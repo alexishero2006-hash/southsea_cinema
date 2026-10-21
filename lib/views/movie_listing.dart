@@ -18,21 +18,17 @@ class _MovieListingState extends State<MovieListing> {
   @override
   Widget build(BuildContext context) {
     final movies = MoviesRepository().getMovies();
-
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(appTitle, style: cinemaHeaderStyle),
-          backgroundColor: cinemaSurface,
-          iconTheme: const IconThemeData(color: cinemaBrand),
-          elevation: 0,
-        ),
-        drawer: const NavDrawer(),
-        body: Container(
-          color: cinemaSurface,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+      appBar: AppBar(
+        title: const Text(appTitle),
+      ),
+      drawer: const NavDrawer(),
+      body: Container(
+        color: cinemaSurface,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
                 Text(
                   MoviesRepository().getMovies()[0].name,
                   style: TextStyle(fontSize: 34),
