@@ -20,9 +20,15 @@ class SouthseaCinemaApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: cinemaBrand,
           primary: cinemaBrand,
-          surface: cinemaSurface,
+          surface: cinemaSurface
         ),
-      ),
+        
+        appBarTheme: const AppBarTheme(
+          backgroundColor: cinemaSurface,
+          foregroundColor: cinemaBrand,
+          elevation: 0,
+          ),
+        ),
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeView(),

@@ -165,6 +165,7 @@ class _MovieListingState extends State<MovieListing> {
                   },
                   child: const Text('Add'),
                 ),
+                SizedBox(height: 10),
               ],
             ),
           ),
