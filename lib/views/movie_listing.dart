@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/reposetories/movies_repository.dart';
+import 'package:southsea_cinema/widgets/Button_rounded.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({super.key});
@@ -19,16 +20,16 @@ class _MovieListingState extends State<MovieListing> {
   Widget build(BuildContext context) {
     final movies = MoviesRepository().getMovies();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(appTitle),
-      ),
-      drawer: const NavDrawer(),
-      body: Container(
-        color: cinemaSurface,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        appBar: AppBar(
+          title: const Text(appTitle),
+        ),
+        drawer: const NavDrawer(),
+        body: Container(
+          color: cinemaSurface,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Text(
                   MoviesRepository().getMovies()[0].name,
                   style: TextStyle(fontSize: 34),
@@ -85,13 +86,13 @@ class _MovieListingState extends State<MovieListing> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
+                Button_rounded(
+                  label: 'Add',
                   onPressed: () {
                     setState(() {
                       message = 'Add button pressed!';
                     });
                   },
-                  child: const Text('Add'),
                 ),
                 if (message != null)
                   Text(
@@ -153,13 +154,13 @@ class _MovieListingState extends State<MovieListing> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
+                Button_rounded(
+                  label: 'Add',
                   onPressed: () {
                     setState(() {
                       message = 'Add button pressed!';
                     });
                   },
-                  child: const Text('Add'),
                 ),
                 SizedBox(height: 10),
               ],

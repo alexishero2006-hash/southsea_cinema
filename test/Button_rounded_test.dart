@@ -4,12 +4,12 @@ import 'package:southsea_cinema/widgets/Button_rounded.dart';
 
 void main() {
 
-  testWidgets('PrimaryButton displays its label', (tester) async {
+  testWidgets('Button_rounded displays its label', (tester) async {
 
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: PrimaryButton(
+          body: Button_rounded(
             label: 'Book Now',
             onPressed: () {},
           ),
@@ -21,14 +21,14 @@ void main() {
   });
 
 
-  testWidgets('PrimaryButton responds to tapping', (tester) async {
+  testWidgets('Button_rounded responds to tapping', (tester) async {
 
     bool wasPressed = false;
 
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: PrimaryButton(
+          body: Button_rounded(
             label: 'Book Now',
             onPressed: () {
               wasPressed = true;

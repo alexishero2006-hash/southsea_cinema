@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 
-class PrimaryButton extends StatelessWidget {
+class Button_rounded extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const PrimaryButton({
+  const Button_rounded({
     super.key,
     required this.label,
     required this.onPressed,
@@ -18,7 +18,7 @@ class PrimaryButton extends StatelessWidget {
         backgroundColor: cinemaBrand,
         foregroundColor: cinemaFontWhite,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
       ),
       onPressed: onPressed,
