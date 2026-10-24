@@ -1,6 +1,8 @@
 import 'package:southsea_cinema/models/Basket_item.dart';
 
 class BasketRepository {
+  static final BasketRepository instance = BasketRepository();
+
   List<BasketItem> _basketItems = [];
 
   void addItem(BasketItem item) {

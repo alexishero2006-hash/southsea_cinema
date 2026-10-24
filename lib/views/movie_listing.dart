@@ -4,6 +4,7 @@ import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/reposetories/movies_repository.dart';
 import 'package:southsea_cinema/widgets/Button_rounded.dart';
 import 'package:southsea_cinema/reposetories/Basket_repository.dart';
+import 'package:southsea_cinema/models/Basket_item.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({super.key});
@@ -90,6 +91,12 @@ class _MovieListingState extends State<MovieListing> {
                 Button_rounded(
                   label: 'Add',
                   onPressed: () {
+                    final basketItem = BasketItem(
+                      title: movies[0].name,
+                      tickets: tickets,
+                      price: movies[0].price,
+                    );
+                    BasketRepository.instance.addItem(basketItem);
                     setState(() {
                       message = 'Add button pressed!';
                     });
@@ -158,6 +165,12 @@ class _MovieListingState extends State<MovieListing> {
                 Button_rounded(
                   label: 'Add',
                   onPressed: () {
+                    final basketItem = BasketItem(
+                      title: movies[1].name,
+                      tickets: openheimerTickets,
+                      price: movies[1].price,
+                    );
+                    BasketRepository.instance.addItem(basketItem);
                     setState(() {
                       message = 'Add button pressed!';
                     });
