@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/reposetories/Basket_repository.dart';
+import 'package:southsea_cinema/reposetories/movies_repository.dart';
 
 class BasketView extends StatefulWidget {
   const BasketView();
@@ -14,19 +15,19 @@ class _BasketViewState extends State<BasketView> {
   @override
   Widget build(BuildContext context) {
     final basketItems = BasketRepository.instance.getItems();
+    final totalPrice = basketItems.fold<double>(
+      4.0,
+      (total, item) => total + item.price,
+    );
     return Scaffold(
       drawer: const NavDrawer(),
-
       appBar: AppBar(
         title: const Text(appTitle),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(16),
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
             const SizedBox(height: 20),
 
@@ -41,7 +42,7 @@ class _BasketViewState extends State<BasketView> {
             const SizedBox(height: 30),
 
             // Table headings
-             Row(
+            Row(
               children: [
                 Expanded(child: Text('Item')),
                 Expanded(child: Text('Details')),
@@ -53,32 +54,24 @@ class _BasketViewState extends State<BasketView> {
 
             const Divider(),
 
-           
-              Row(
-               children: [
-                if (basketItems.isEmpty)
-                  const Expanded(
-                    child: Text(
-                      'Your basket is empty.',
-                      style: TextStyle(color: cinemaFontWhite),
-                    ),
-                  )
-                else
-                for (var item in basketItems)
-                     Row(
-                        children: [
-                          Expanded(child: Text(item.title)),
-                          Expanded(child: Text('${item.tickets} tickets')),
-                          Expanded(child: Text('£${item.price.toStringAsFixed(2)}')),
-                        ],
-                      ),
-          
-               ],
-              ),
-
-            const SizedBox(height: 30),
-
-            
+            if (basketItems.isEmpty)
+              const Expanded(
+                child: Text(
+                  'Your basket is empty.',
+                  style: TextStyle(color: cinemaFontWhite),
+                ),
+              )
+            else
+              for (var item in basketItems)
+                Row(
+                  children: [
+                    Expanded(child: Text('${item.tickets} tickets')),
+                    Expanded(
+                        child:
+                            Text('${item.tickets} standard ${item.title}  ')),
+                    Expanded(child: Text('£${item.price.toStringAsFixed(2)}')),
+                  ],
+                ),
 
             const SizedBox(height: 20),
 
@@ -87,11 +80,11 @@ class _BasketViewState extends State<BasketView> {
             const SizedBox(height: 20),
 
             // Service charge
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Service Charge'),
-                Text('£0.00'),
+                Text('£4.00'),
               ],
             ),
 
@@ -106,7 +99,7 @@ class _BasketViewState extends State<BasketView> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '£0.00',
+                  '£ ${(totalPrice + 4).toStringAsFixed(2) } ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
@@ -123,9 +116,7 @@ class _BasketViewState extends State<BasketView> {
                     child: const Text('UPDATE ORDER'),
                   ),
                 ),
-
                 const SizedBox(width: 10),
-
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {},

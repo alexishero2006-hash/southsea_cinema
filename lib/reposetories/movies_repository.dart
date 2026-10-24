@@ -5,7 +5,7 @@ class MoviesRepository {
     return const [
       Movies(
           id: '1',
-          name: 'Interstellar',
+          name: 'INTERSTELLAR',
           description:
               'A team of explorers travels through a wormhole in space in search of a new home for humanity.',
           imagePath: 'assets/images/interstellar.jpg',
@@ -14,7 +14,7 @@ class MoviesRepository {
           price: 8.50),
       Movies(
           id: '2',
-          name: 'Openheimer',
+          name: 'OPENHEIMER',
           description:
               'The story of J. Robert Oppenheimer and his role in the development of the atomic bomb.',
           imagePath: 'assets/images/openheimer.jpg',
