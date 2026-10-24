@@ -3,6 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/reposetories/movies_repository.dart';
 import 'package:southsea_cinema/widgets/Button_rounded.dart';
+import 'package:southsea_cinema/reposetories/Basket_repository.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({super.key});

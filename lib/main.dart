@@ -18,6 +18,7 @@ class SouthseaCinemaApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
+        '/': (context) => const HomeView(),
         '/basket': (context) => const BasketView(),
         '/settings': (context) => const SettingsView(),
       },
