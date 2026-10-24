@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/reposetories/Basket_repository.dart';
 
 class BasketView extends StatefulWidget {
   const BasketView();
@@ -12,6 +13,7 @@ class BasketView extends StatefulWidget {
 class _BasketViewState extends State<BasketView> {
   @override
   Widget build(BuildContext context) {
+    final basketItems = BasketRepository.instance.getItems();
     return Scaffold(
       drawer: const NavDrawer(),
 
@@ -39,7 +41,7 @@ class _BasketViewState extends State<BasketView> {
             const SizedBox(height: 30),
 
             // Table headings
-            const Row(
+             Row(
               children: [
                 Expanded(child: Text('Item')),
                 Expanded(child: Text('Details')),
@@ -51,24 +53,32 @@ class _BasketViewState extends State<BasketView> {
 
             const Divider(),
 
-            const Row(
-              children: [
-                Expanded(child: Text('0 Tickets')),
-                Expanded(child: Text('The Phantom of the Opera')),
-                Expanded(child: Text('£12.00')),
-              ],
-            ),
+           
+              Row(
+               children: [
+                if (basketItems.isEmpty)
+                  const Expanded(
+                    child: Text(
+                      'Your basket is empty.',
+                      style: TextStyle(color: cinemaFontWhite),
+                    ),
+                  )
+                else
+                for (var item in basketItems)
+                     Row(
+                        children: [
+                          Expanded(child: Text(item.title)),
+                          Expanded(child: Text('${item.tickets} tickets')),
+                          Expanded(child: Text('£${item.price.toStringAsFixed(2)}')),
+                        ],
+                      ),
+          
+               ],
+              ),
 
             const SizedBox(height: 30),
 
-            // Second ticket
-            const Row(
-              children: [
-                Expanded(child: Text('3 Tickets')),
-                Expanded(child: Text('Halloween 1978')),
-                Expanded(child: Text('£18.00')),
-              ],
-            ),
+            
 
             const SizedBox(height: 20),
 
@@ -77,18 +87,18 @@ class _BasketViewState extends State<BasketView> {
             const SizedBox(height: 20),
 
             // Service charge
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Service Charge'),
-                Text('£4.00'),
+                Text('£0.00'),
               ],
             ),
 
             const SizedBox(height: 20),
 
             // Total
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -96,7 +106,7 @@ class _BasketViewState extends State<BasketView> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '£34.00',
+                  '£0.00',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],

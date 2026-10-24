@@ -21,6 +21,7 @@ class SouthseaCinemaApp extends StatelessWidget {
         '/': (context) => const HomeView(),
         '/basket': (context) => const BasketView(),
         '/settings': (context) => const SettingsView(),
+        '/listing': (context) => const MovieListing(),
       },
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: cinemaBackground,
