@@ -121,8 +121,9 @@ class _BasketViewState extends State<BasketView> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('UPDATE ORDER'),
+                    onPressed: () {
+                    }
+                    ,child: const Text('UPDATE ORDER'),
                   ),
                 ),
                 const SizedBox(width: 10),

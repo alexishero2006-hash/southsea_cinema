@@ -96,7 +96,7 @@ class _MovieListingState extends State<MovieListing> {
                       tickets: tickets,
                       price: movies[0].price,
                     );
-                    BasketRepository.instance.addItem(basketItem);
+                    BasketRepository.instance.additem(basketItem);
                     setState(() {
                       message = 'Add button pressed!';
                     });
@@ -170,7 +170,7 @@ class _MovieListingState extends State<MovieListing> {
                       tickets: openheimerTickets,
                       price: movies[1].price,
                     );
-                    BasketRepository.instance.addItem(basketItem);
+                    BasketRepository.instance.additem(basketItem);
                     setState(() {
                       message = 'Add button pressed!';
                     });

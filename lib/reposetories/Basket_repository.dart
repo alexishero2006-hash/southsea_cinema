@@ -1,27 +1,28 @@
 import 'package:flutter/widgets.dart';
 import 'package:southsea_cinema/models/Basket_item.dart';
 
-
 class BasketRepository {
   static final BasketRepository instance = BasketRepository();
 
   List<BasketItem> basketItems = [];
 
-  void addItem(BasketItem item) {
-    for (var existingItem in basketItems) {
-      if (existingItem.title == item.title) {
-        basketItems[basketItems.indexOf(existingItem)] = BasketItem(
-          title: existingItem.title,
-          price: existingItem.price,
-          tickets: existingItem.tickets + item.tickets,
-        );
+  void additem(BasketItem item) {
 
-        return;
-      }
+        for (var existingItem in basketItems) {
+          if (existingItem.title == item.title) {
+            basketItems[basketItems.indexOf(existingItem)] = BasketItem(
+              title: existingItem.title,
+              price: existingItem.price,
+              tickets: (existingItem.tickets + item.tickets).toInt(),
+             
+            );
+             return;
+          }
+          
+        }
+      basketItems.add(item);
     }
-
-    basketItems.add(item);
-  }
+  
 
   List<BasketItem> getItems() {
     return basketItems;
@@ -38,6 +39,6 @@ class BasketRepository {
   }
 
   void delete_button(String title) {
-  basketItems.removeWhere((item) => item.title == title);
-}
+    basketItems.removeWhere((item) => item.title == title);
+  }
 }
