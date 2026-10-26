@@ -3,6 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/reposetories/Basket_repository.dart';
 import 'package:southsea_cinema/reposetories/movies_repository.dart';
+import 'package:southsea_cinema/widgets/Button_rounded.dart';
 
 class BasketView extends StatefulWidget {
   const BasketView();
@@ -70,6 +71,8 @@ class _BasketViewState extends State<BasketView> {
                         child:
                             Text('${item.tickets} standard ${item.title}  ')),
                     Expanded(child: Text('£${item.price.toStringAsFixed(2)}')),
+                    Button_rounded(label: "delete", 
+                    onPressed: BasketRepository.instance.basketItems.clear  )
                   ],
                 ),
 
@@ -99,7 +102,7 @@ class _BasketViewState extends State<BasketView> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '£ ${(totalPrice + 4).toStringAsFixed(2) } ',
+                  '£ ${(totalPrice + 4).toStringAsFixed(2)} ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
