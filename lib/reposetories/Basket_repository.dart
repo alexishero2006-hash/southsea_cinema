@@ -1,4 +1,6 @@
+import 'package:flutter/widgets.dart';
 import 'package:southsea_cinema/models/Basket_item.dart';
+
 
 class BasketRepository {
   static final BasketRepository instance = BasketRepository();
@@ -34,4 +36,8 @@ class BasketRepository {
 
     return total;
   }
+
+  void delete_button(String title) {
+  basketItems.removeWhere((item) => item.title == title);
+}
 }

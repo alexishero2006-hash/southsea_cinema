@@ -71,8 +71,14 @@ class _BasketViewState extends State<BasketView> {
                         child:
                             Text('${item.tickets} standard ${item.title}  ')),
                     Expanded(child: Text('£${item.price.toStringAsFixed(2)}')),
-                    Button_rounded(label: "delete", 
-                    onPressed: BasketRepository.instance.basketItems.clear  )
+                    Button_rounded(
+                      label: "delete",
+                      onPressed: () {
+                        setState(() {
+                          BasketRepository.instance.delete_button(item.title);
+                        });
+                      },
+                    ),
                   ],
                 ),
 
