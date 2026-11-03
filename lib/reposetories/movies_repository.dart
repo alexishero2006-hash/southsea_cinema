@@ -1,6 +1,18 @@
 import 'package:southsea_cinema/models/movies.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 class MoviesRepository {
+  List<Movies>? _cachedMovies;
+
+  Future<List<Movies>> loadMoviesFromAsset() async {
+    final jsonString = await rootBundle.loadString('assets/data/movies.json');
+    final jsonList = json.decode(jsonString) as List;
+    final loadedMovies = jsonList.map((json) => Movies.fromJson(json)).toList();
+    _cachedMovies = loadedMovies;
+    return loadedMovies;
+  }
+
   List<Movies> getMovies() {
     return const [
       Movies(
