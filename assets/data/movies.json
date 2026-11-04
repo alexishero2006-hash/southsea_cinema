@@ -7,10 +7,11 @@
         "imagePath": "assets/images/interstellar.jpg",
         "ageRating": "12A",
         "showTime": "18:00"
+
     },
     {
-        "id": "oppenheimer",
-        "name": "Oppenheimer",
+        "id": "openheimer",
+        "name": "Openheimer",
         "description": "The story of J. Robert Oppenheimer and his role in the development of the atomic bomb.",
         "price": 8.50,
         "imagePath": "assets/images/openheimer.jpg",

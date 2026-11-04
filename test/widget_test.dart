@@ -15,7 +15,12 @@ void main() {
     testWidgets('Displays movies and booking buttons',
         (WidgetTester tester) async {
       await tester.pumpWidget(const SouthseaCinemaApp());
-      await tester.pumpAndSettle();
+      await tester.runAsync(() async {
+  await Future.delayed(const Duration(milliseconds: 500));
+});
+
+await tester.pump();
+
 
       expect(find.text('Interstellar'), findsOneWidget);
       expect(find.text('Openheimer'), findsOneWidget);
